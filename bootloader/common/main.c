@@ -145,6 +145,10 @@ int main(int argc, char* argv[])
         if (pyi_utils_set_environment(archive_status) == -1)
             return -1;
 
+        /* Transform parent to background process */
+        /* see http://dvitonis.net/blog/2015/01/07/menu-bar-not-visible-when-building-pyqt-app-bundle-pyinstaller-mac-osx-mavericks-yosemite/ */
+        pyi_parent_to_background();
+        
         /* Run user's code in a subprocess and pass command line arguments to it. */
         rc = pyi_utils_create_child(executable, argc, argv);
 

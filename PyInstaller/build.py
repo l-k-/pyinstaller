@@ -1627,8 +1627,11 @@ class BUNDLE(Target):
                            # side effect, the main application doesn't get one
                            # as well, but at startup time the loader will take
                            # care of transforming the process type.
-                           "LSBackgroundOnly": "1",
-
+                           #"LSBackgroundOnly": "1",
+                           
+                           # setting this to 0 to fix the menu bug on Mavericks/Yosemite, see here:
+                           #http://dvitonis.net/blog/2015/01/07/menu-bar-not-visible-when-building-pyqt-app-bundle-pyinstaller-mac-osx-mavericks-yosemite/
+                           "LSBackgroundOnly": "0",
                            }
 
         # Merge info_plist settings from spec file
